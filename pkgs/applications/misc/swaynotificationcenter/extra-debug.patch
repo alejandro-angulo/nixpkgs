@@ -1,0 +1,15 @@
+diff --git a/src/controlCenter/widgets/mpris/mpris_player.vala b/src/controlCenter/widgets/mpris/mpris_player.vala
+index 50f5cdb..641ebf4 100644
+--- a/src/controlCenter/widgets/mpris/mpris_player.vala
++++ b/src/controlCenter/widgets/mpris/mpris_player.vala
+@@ -332,8 +332,8 @@ namespace SwayNotificationCenter.Widgets.Mpris {
+                     this.album_art_pixbuf = yield new Gdk.Pixbuf.from_stream_async (
+                         stream, album_art_cancellable);
+                 } catch (Error e) {
+-                    debug ("Could not download album art for %s. Using fallback...",
+-                           source.media_player.identity);
++                    debug ("Could not download album art for %s (%s). Using fallback...",
++                           source.media_player.identity, e.message);
+                     this.album_art_pixbuf = null;
+                 }
+                 if (this.album_art_pixbuf != null) {

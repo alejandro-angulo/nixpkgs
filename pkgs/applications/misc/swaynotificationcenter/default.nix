@@ -78,6 +78,8 @@ stdenv.mkDerivation (finalAttrs: rec {
     # systemd # ends with broken permission
   ];
 
+  patches = [./extra-debug.patch];
+
   postPatch = ''
     chmod +x build-aux/meson/postinstall.py
     patchShebangs build-aux/meson/postinstall.py
